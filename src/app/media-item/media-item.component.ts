@@ -9,12 +9,10 @@ export class MediaItemComponent implements OnInit {
 
   constructor() { }
 
-  name = 'The Redemption';
-  
   ngOnInit(): void {
   }
- 
-  wasWatched() {
-    return true;
+
+  OnDelete() {
+    console.log('deleted');
   }
 }
