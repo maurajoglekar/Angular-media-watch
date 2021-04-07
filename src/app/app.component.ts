@@ -21,6 +21,5 @@ export class AppComponent {
 
   onMediaItemDelete(mediaItem) {
     console.log(`clicked delete: ${JSON.stringify(mediaItem)}`);
-
   }
 }
