@@ -1,10 +1,11 @@
 
+<!-- Piping examples:  <h2>{{mediaItem.name | slice: 0: 10 | uppercase}}</h2> -->
 <h2>{{mediaItem.name}}</h2>
 <!-- syntactic sugar to use *ngIf-->
 <!--  <div *ngIf="mediaItem.watchedOn">{{mediaItem.watchedOn}}</div>  -->
 <!--  Use the below ng-template when multiple elements on the same condition -->
 <ng-template [ngIf]="mediaItem.watchedOn">
-    <div>{{ mediaItem.watchedOn }}</div>
+    <div>{{ mediaItem.watchedOn | date: 'shortDate' }}</div>
   </ng-template>
 <div>{{mediaItem.category}}</div>
 <div>{{mediaItem.year}}</div>
