@@ -1,3 +1,7 @@
+
+<header>
+    <div *ngIf="mediaItems">{{ mediaItems | categoryList }}</div>
+  </header>
 <section>
     <!--
      <mw-media-item [mediaItem]="mediaItems[0]"
