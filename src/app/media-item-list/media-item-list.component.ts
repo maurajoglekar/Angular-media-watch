@@ -9,7 +9,7 @@ import { MediaItemService, MediaItem } from '../media-item.service';
 export class MediaItemListComponent implements OnInit {
   medium = '';
   mediaItems: MediaItem[];
-  
+
   constructor(private mediaItemService: MediaItemService) {}
 
   ngOnInit() {
@@ -20,9 +20,9 @@ export class MediaItemListComponent implements OnInit {
     this.mediaItemService.delete(mediaItem);
   }
 
-  getMediaItems(medium: string) {
+  getMediaItems(medium) {
     this.medium = medium;
-    this.mediaItemService.get()
+    this.mediaItemService.get(medium)
       .subscribe(mediaItems => {
         this.mediaItems = mediaItems;
       });
