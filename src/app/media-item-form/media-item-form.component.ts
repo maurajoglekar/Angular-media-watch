@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MediaItemService } from '../media-item.service'
+import { lookupListToken } from '../providers'
 
 @Component({
   selector: 'mw-media-item-form',
@@ -13,7 +14,7 @@ export class MediaItemFormComponent implements OnInit {
   // by using private below, the var is created and initialized in the class
   constructor(private formBuilder: FormBuilder, 
     private mediaItemService : MediaItemService,
-    @Inject('lookupListToken') public lookupLists) {}
+    @Inject(lookupListToken) public lookupLists) {}
 
   // constructor injection brought in service instance
   ngOnInit() {
