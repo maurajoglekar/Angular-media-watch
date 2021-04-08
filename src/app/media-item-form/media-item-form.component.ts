@@ -48,6 +48,8 @@ export class MediaItemFormComponent implements OnInit {
   }
 
   onSubmit(mediaItem) {
+    // must call subscribe to kick it off
     this.mediaItemService.add(mediaItem)
+    .subscribe();
   }
 }
