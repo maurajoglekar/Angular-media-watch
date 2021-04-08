@@ -8,9 +8,9 @@
     <ul>
       <li>
         <label for="medium">Medium</label>
+        <!-- the medium options are now driven by the look-up list medium token provided in the injector at the root level -->
         <select name="medium" id="medium" formControlName="medium">
-          <option value="Movies">Movies</option>
-          <option value="Series">Series</option>
+          <option *ngFor="let medium of lookupLists.mediums" [value]="medium">{{medium}}</option>
         </select>
       </li>
       <li>
