@@ -1,3 +1,10 @@
+import { Injectable } from '@angular/core';
+
+// tells Angular to register this media service class at the root level
+// to give access from anywhere in the app
+@Injectable({
+  providedIn: 'root'
+})
 export class MediaItemService {
     mediaItems = [
       {
