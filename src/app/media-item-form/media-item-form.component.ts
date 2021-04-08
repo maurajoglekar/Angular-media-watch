@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { MediaItemService } from '../media-item.service'
 
 @Component({
   selector: 'mw-media-item-form',
@@ -10,7 +11,8 @@ export class MediaItemFormComponent implements OnInit {
   form: FormGroup;
 
   // by using private below, the var is created and initialized in the class
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, 
+    private mediaItemService : MediaItemService) {}
 
   // constructor injection brought in service instance
   ngOnInit() {
@@ -44,6 +46,6 @@ export class MediaItemFormComponent implements OnInit {
   }
 
   onSubmit(mediaItem) {
-    console.log(mediaItem);
+    this.mediaItemService.add(mediaItem)
   }
 }
