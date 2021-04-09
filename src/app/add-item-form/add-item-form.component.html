@@ -6,21 +6,21 @@
     [formGroup]="form"
     (ngSubmit)="onSubmit(form.value)">
     <ul>
-      <li>
+      <li class="formInputField">
         <label for="medium">Medium</label>
         <!-- the medium options are now driven by the look-up list medium token provided in the injector at the root level -->
         <select name="medium" id="medium" formControlName="medium">
           <option *ngFor="let medium of lookupLists.mediums" [value]="medium">{{medium}}</option>
         </select>
       </li>
-      <li>
+      <li class="formInputField">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" formControlName="name">
         <div *ngIf="form.get('name').hasError('pattern')" class="error">
             Name has invalid characters
           </div>
       </li>
-      <li>
+      <li class="formInputField">
         <label for="category">Category</label>
         <select name="category" id="category" formControlName="category">
           <option value="Action">Action</option>
@@ -31,7 +31,7 @@
           <option value="Romance">Romance</option>
         </select>
       </li>
-      <li>
+      <li class="formInputField">
         <label for="year">Year</label>
         <input type="text" name="year" id="year" maxlength="4" formControlName="year">
         <div *ngIf="form.get('year').errors as yearErrors" class="error">
