@@ -11,7 +11,6 @@ import { CategoryListPipe } from './category-list.pipe';
 import { lookupLists, lookupListToken } from './providers'
 import { MockXHRBackend } from './mock-xhr-backend';
 import { routing } from './app.routing'
-import { AddItemModule } from './add-item-form/add-item.module'
 import { EditItemModule } from './edit-item-form/edit-item.module'
 
 @NgModule({
@@ -28,7 +27,6 @@ import { EditItemModule } from './edit-item-form/edit-item.module'
     ReactiveFormsModule,
     HttpClientModule,
     routing,
-    AddItemModule,
     EditItemModule
   ],
   providers: [
