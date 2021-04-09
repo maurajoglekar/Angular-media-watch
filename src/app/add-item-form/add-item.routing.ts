@@ -1,9 +1,9 @@
 
 import { Routes, RouterModule } from '@angular/router';
-import { MediaItemFormComponent } from './media-item-form.component';
+import { AddItemFormComponent } from './add-item-form.component';
 
 const addItemRoutes: Routes = [
-  { path: 'add', component: MediaItemFormComponent }
+  { path: 'add', component: AddItemFormComponent }
 ];
 
 export const addItemRouting = RouterModule.forChild(addItemRoutes);

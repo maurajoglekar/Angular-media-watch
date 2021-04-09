@@ -6,10 +6,10 @@ import { lookupListToken } from '../providers'
 
 @Component({
   selector: 'mw-media-item-form',
-  templateUrl: './media-item-form.component.html',
-  styleUrls: ['./media-item-form.component.css']
+  templateUrl: './add-item-form.component.html',
+  styleUrls: ['./add-item-form.component.css']
 })
-export class MediaItemFormComponent implements OnInit {
+export class AddItemFormComponent implements OnInit {
   form: FormGroup;
 
   // by using private below, the var is created and initialized in the class

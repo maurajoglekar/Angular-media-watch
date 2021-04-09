@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MediaItemFormComponent } from './edit-item-form.component';
+import { EditItemFormComponent } from './edit-item-form.component';
 
-describe('MediaItemFormComponent', () => {
-  let component: MediaItemFormComponent;
-  let fixture: ComponentFixture<MediaItemFormComponent>;
+describe('EditItemFormComponent', () => {
+  let component: EditItemFormComponent;
+  let fixture: ComponentFixture<EditItemFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MediaItemFormComponent ]
+      declarations: [ EditItemFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MediaItemFormComponent);
+    fixture = TestBed.createComponent(EditItemFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

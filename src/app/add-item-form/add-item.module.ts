@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MediaItemFormComponent } from './media-item-form.component';
+import { AddItemFormComponent } from './add-item-form.component';
 import { addItemRouting } from './add-item.routing';
 
 @NgModule({
@@ -11,7 +11,7 @@ import { addItemRouting } from './add-item.routing';
     addItemRouting
   ],
   declarations: [
-    MediaItemFormComponent
+    AddItemFormComponent
   ]
 })
 export class AddItemModule {}
