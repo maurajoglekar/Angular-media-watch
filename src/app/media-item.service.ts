@@ -26,6 +26,17 @@ export class MediaItemService {
       );
   }
 
+  getById(id) {
+    // url is 'mediaitems/{id}'
+    return this.http.get<MediaItemsResponse>(`mediaitems/${id}`)
+      .pipe(
+        map((response: MediaItemsResponse) => {
+          return response.mediaItems;
+        }),
+        catchError(this.handleError)
+      );
+  }
+
   add(mediaItem: MediaItem) {
     // mediaItem is the body
     return this.http.post('mediaitems', mediaItem)

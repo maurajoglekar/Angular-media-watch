@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import { MediaItemService } from '../media-item.service'
+import { Router, ActivatedRoute } from '@angular/router';
+import { MediaItemService, MediaItem } from '../media-item.service';
 import { lookupListToken } from '../providers'
 
 @Component({
@@ -11,23 +11,30 @@ import { lookupListToken } from '../providers'
 })
 export class EditItemFormComponent implements OnInit {
   form: FormGroup;
+  mediaItem: MediaItem;
 
   // by using private below, the var is created and initialized in the class
   constructor(private formBuilder: FormBuilder, 
     private mediaItemService : MediaItemService,
     @Inject(lookupListToken) public lookupLists,
-    private router: Router) {}
+    private router: Router,
+    private activatedRoute: ActivatedRoute,) {}
 
   // constructor injection brought in service instance
   ngOnInit() {
+    this.activatedRoute.paramMap
+    .subscribe(paramMap => {
+      let id = paramMap.get('id');
+      this.getMediaItem(id);
+    });
     this.form = this.formBuilder.group({
-      medium: this.formBuilder.control('Movies'),
-      name: this.formBuilder.control('', Validators.compose([
+      medium: this.formBuilder.control(this.mediaItem.medium),
+      name: this.formBuilder.control(this.mediaItem.name, Validators.compose([
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
-      category: this.formBuilder.control(''),
-      year: this.formBuilder.control('', this.yearValidator),
+      category: this.formBuilder.control(this.mediaItem.category),
+      year: this.formBuilder.control(this.mediaItem.year, this.yearValidator),
     });
   }
 
@@ -47,6 +54,13 @@ export class EditItemFormComponent implements OnInit {
       }
      };
     }
+  }
+
+  getMediaItem(id) {
+    this.mediaItemService.getById(id)
+      .subscribe(mediaItems => {
+        this.mediaItem = mediaItems[0];
+      });
   }
 
   onSubmit(mediaItem) {

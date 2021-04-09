@@ -73,7 +73,7 @@ export class MockXHRBackend implements HttpBackend {
             const idToFind = parseInt(request.url.split('/')[1], 10);
             mediaItems = this.mediaItems.filter(i => i.id === idToFind);
             responseOptions = {
-              body: JSON.parse(JSON.stringify(mediaItems[0])),
+              body: {mediaItems: JSON.parse(JSON.stringify(mediaItems))},
               status: 200
             };
           }
