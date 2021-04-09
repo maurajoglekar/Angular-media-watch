@@ -8,7 +8,7 @@ import { MediaItemComponent } from './media-item/media-item.component';
 import { MediaItemListComponent } from './media-item-list/media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
-import { MediaItemFormComponent } from './media-item-form/media-item-form.component'
+import { MediaItemFormComponent } from './add-item-form/media-item-form.component'
 import { EditItemFormComponent } from './edit-item-form/edit-item-form.component'
 import { lookupLists, lookupListToken } from './providers'
 import { MockXHRBackend } from './mock-xhr-backend';
