@@ -8,11 +8,11 @@ import { MediaItemComponent } from './media-item/media-item.component';
 import { MediaItemListComponent } from './media-item-list/media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
-import { MediaItemFormComponent } from './add-item-form/media-item-form.component'
 import { EditItemFormComponent } from './edit-item-form/edit-item-form.component'
 import { lookupLists, lookupListToken } from './providers'
 import { MockXHRBackend } from './mock-xhr-backend';
 import { routing } from './app.routing'
+import { AddItemModule } from './add-item-form/add-item.module'
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import { routing } from './app.routing'
     MediaItemListComponent,
     FavoriteDirective,
     CategoryListPipe,
-    MediaItemFormComponent,
     EditItemFormComponent
   ],
   imports: [
@@ -29,7 +28,8 @@ import { routing } from './app.routing'
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    routing
+    routing,
+    AddItemModule
   ],
   providers: [
     { provide: lookupListToken, useValue: lookupLists },
