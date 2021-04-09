@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MediaItemService, MediaItem } from '../media-item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'mw-media-item-list',
@@ -12,7 +13,8 @@ export class MediaItemListComponent implements OnInit {
   mediaItems: MediaItem[];
 
   constructor(private mediaItemService: MediaItemService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap
@@ -29,6 +31,12 @@ export class MediaItemListComponent implements OnInit {
     // After delete is called, get the items again
     this.mediaItemService.delete(mediaItem)
       .subscribe(() => this.getMediaItems(this.medium));
+  }
+
+  // click on media item to edit
+  onClickItem(mediaItem) {
+    console.log(JSON.stringify(mediaItem));
+    this.router.navigate(['/edit/', mediaItem.id]);
   }
 
   getMediaItems(medium) {

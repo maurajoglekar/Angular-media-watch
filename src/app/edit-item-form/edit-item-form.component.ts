@@ -1,0 +1,59 @@
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MediaItemService } from '../media-item.service'
+import { lookupListToken } from '../providers'
+
+@Component({
+  selector: 'mw-edit-item-form',
+  templateUrl: './edit-item-form.component.html',
+  styleUrls: ['./edit-item-form.component.css']
+})
+export class EditItemFormComponent implements OnInit {
+  form: FormGroup;
+
+  // by using private below, the var is created and initialized in the class
+  constructor(private formBuilder: FormBuilder, 
+    private mediaItemService : MediaItemService,
+    @Inject(lookupListToken) public lookupLists,
+    private router: Router) {}
+
+  // constructor injection brought in service instance
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      medium: this.formBuilder.control('Movies'),
+      name: this.formBuilder.control('', Validators.compose([
+        Validators.required,
+        Validators.pattern('[\\w\\-\\s\\/]+')
+      ])),
+      category: this.formBuilder.control(''),
+      year: this.formBuilder.control('', this.yearValidator),
+    });
+  }
+
+  yearValidator(control: FormControl) {
+    if (control.value.trim().length === 0) {
+      return null;
+    }
+    const year = parseInt(control.value, 10);
+    const minYear = 1800;
+    const maxYear = 2500;
+    if (year >= minYear && year <= maxYear) {
+      return null;
+    } else {
+      return { year: {
+        min: minYear,
+        max: maxYear
+      }
+     };
+    }
+  }
+
+  onSubmit(mediaItem) {
+    // must call subscribe to kick it off
+    this.mediaItemService.add(mediaItem)
+    .subscribe(() => {
+      this.router.navigate(['/', mediaItem.medium]);
+    });
+  }
+}

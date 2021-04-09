@@ -9,6 +9,7 @@ import { MediaItemListComponent } from './media-item-list/media-item-list.compon
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form/media-item-form.component'
+import { EditItemFormComponent } from './edit-item-form/edit-item-form.component'
 import { lookupLists, lookupListToken } from './providers'
 import { MockXHRBackend } from './mock-xhr-backend';
 import { routing } from './app.routing'
@@ -20,7 +21,8 @@ import { routing } from './app.routing'
     MediaItemListComponent,
     FavoriteDirective,
     CategoryListPipe,
-    MediaItemFormComponent
+    MediaItemFormComponent,
+    EditItemFormComponent
   ],
   imports: [
     BrowserModule,
