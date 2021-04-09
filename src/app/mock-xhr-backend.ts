@@ -38,7 +38,7 @@ export class MockXHRBackend implements HttpBackend {
       isFavorite: true
     }, {
       id: 5,
-      name: 'Happy Joe: Cheery Road',
+      name: 'Happy Joe',
       medium: 'Movies',
       category: 'Action',
       year: 2015,
