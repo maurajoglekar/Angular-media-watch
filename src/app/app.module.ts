@@ -12,6 +12,7 @@ import { lookupLists, lookupListToken } from './providers'
 import { MockXHRBackend } from './mock-xhr-backend';
 import { routing } from './app.routing'
 import { EditItemModule } from './edit-item-form/edit-item.module'
+import { CategoryListComponent } from './category-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { EditItemModule } from './edit-item-form/edit-item.module'
     MediaItemComponent,
     MediaItemListComponent,
     FavoriteDirective,
-    CategoryListPipe
+    CategoryListPipe,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,

@@ -22,7 +22,13 @@
   }
   section > header > h1 {
     font-size: 2em;
+    margin-top: 10px;
+    margin-bottom: 5px;
   }
   section > header .description {
     font-style: italic;
+  }
+  section > header > p {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
