@@ -45,6 +45,14 @@ export class MediaItemService {
       );
   }
 
+  update(mediaItem: MediaItem) {
+    // mediaItem is the body
+    return this.http.put('mediaitems', mediaItem)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   delete(mediaItem: MediaItem) {
     return this.http.delete(`mediaitems/${mediaItem.id}`)
     .pipe(

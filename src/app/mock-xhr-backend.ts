@@ -84,6 +84,12 @@ export class MockXHRBackend implements HttpBackend {
           this.mediaItems.push(mediaItem);
           responseOptions = {status: 201};
           break;
+        case 'PUT':
+          const mediaItem2 = request.body;
+          this._deleteMediaItem(mediaItem2.id);
+          this.mediaItems.push(mediaItem2);
+          responseOptions = {status: 201};
+          break;
         case 'DELETE':
           const id = parseInt(request.url.split('/')[1], 10);
           this._deleteMediaItem(id);

@@ -34,8 +34,15 @@ export class EditItemFormComponent implements OnInit {
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
       category: this.formBuilder.control(this.mediaItem.category),
-      year: this.formBuilder.control(this.mediaItem.year, this.yearValidator),
+      year: this.formBuilder.control(this.mediaItem.year),
     });
+  }
+
+  getMediaItem(id) {
+    this.mediaItemService.getById(id)
+      .subscribe(mediaItems => {
+        this.mediaItem = mediaItems[0];
+      });
   }
 
   yearValidator(control: FormControl) {
@@ -56,16 +63,10 @@ export class EditItemFormComponent implements OnInit {
     }
   }
 
-  getMediaItem(id) {
-    this.mediaItemService.getById(id)
-      .subscribe(mediaItems => {
-        this.mediaItem = mediaItems[0];
-      });
-  }
-
   onSubmit(mediaItem) {
+    mediaItem.id = this.mediaItem.id;
     // must call subscribe to kick it off
-    this.mediaItemService.add(mediaItem)
+    this.mediaItemService.update(mediaItem)
     .subscribe(() => {
       this.router.navigate(['/', mediaItem.medium]);
     });
